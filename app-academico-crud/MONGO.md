@@ -1,13 +1,20 @@
-docker run -d -p 27017:27017 -p 28017:28017 -e AUTH=no tutum/mongod
+## Run mongo container
+`docker run -d -p 27017:27017 -p 28017:28017 -e AUTH=no tutum/mongod`
 
-use educ
+## Create table
 
-db.users.save({username:"admin"})
+`use educ`
 
-show dbs
-show collections
+## Create user
 
-db.createCollection("alunos", {
+`db.users.save({username:"admin"})`
+
+`show dbs`
+
+## Create collection
+
+
+<pre>db.createCollection("alunos", {
     validator: { $jsonSchema: {
         bsonType: "object",
         required: ["nome", "email", "matricula", "nascimento", "curso"],
@@ -35,8 +42,8 @@ db.createCollection("alunos", {
                 }
             }
         }}
-})
+})</pre>
 
-db.alunos.insert( { nome: "Lucas", email: "lucas@lucas.com", matricula: 123,  nascimento: 16/01/1995, curso: "SPI"} )
+`db.alunos.insert( { nome: "Lucas", email: "lucas@lucas.com", matricula: 123,  nascimento: 16/01/1995, curso: "SPI"} )`
 
-db.alunos.find({})
+`db.alunos.find({})`
