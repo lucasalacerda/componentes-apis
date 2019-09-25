@@ -8,10 +8,14 @@ var logger = require('morgan');
 const helmet = require('helmet');
 
 const alunoServiceProxy = httpProxy('http://localhost:3001');
+const helloServiceProxy = httpProxy('http://localhost:3002');
 
-// Proxy request
 app.get('/alunos', (req, res, next) => {
     alunoServiceProxy(req, res, next);
+})
+
+app.get('/hello', (req, res, next) => {
+    helloServiceProxy(req, res, next);
 })
 
 app.use(logger('dev'));
