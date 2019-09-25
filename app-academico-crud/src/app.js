@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const alunoRoute = require('./routes/alunoRoute');
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
 app.use(alunoRoute);
